@@ -12,6 +12,8 @@ function App() {
   const [showResult, setShowResult] = useState(null);
   const [isConnected, setIsConnected] = useState(false);
 
+  const contract_address = '0x01e15165d564a2117628d46f6a59cbcfb5c8c19c3c579c32edd5f6050efce909';
+
   const [input, setInput] = useState(null);
 
   const connectToCairo = async () => {
@@ -36,12 +38,26 @@ function App() {
 
   const handleSubmit = async () => {
     try{
-      const contract = new Contract(contractAbi, '0x01e15165d564a2117628d46f6a59cbcfb5c8c19c3c579c32edd5f6050efce909', provider);
+      const contract = new Contract(contractAbi, contract_address, provider);
       const {res} = await contract.get_increment(input);
       console.log(res);
       setShowResult(res.words[0]);
     }catch(ex){
       console.log(ex);
+    }
+  }
+
+  const increaseBalanceFunction = async() => {
+    try{
+      // create a contract object based on the provider, address and abi
+      const contract = new Contract(contractAbi, contract_address, provider)
+      
+      // call the increase_balance function
+      await contract.increase_balance(13)
+      
+    }
+    catch(error){
+      alert(error.message)
     }
   }
 
