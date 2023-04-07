@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import { connect } from 'get-starknet';
 // import { connect } from '@argent/get-starknet';
 
-import contractAbi from './main_abi.json';
+import contractAbi from './starkz-abi/main_abi.json';
 import { useState } from 'react';
 import Values from './Values';
 import StarkIcon from './res/starknet-hero-image.svg';
@@ -13,8 +13,9 @@ function App() {
   const [address, setAddress] = useState(null);
   const [showResult, setShowResult] = useState(null);
   const [isConnected, setIsConnected] = useState(false);
+  const [contract, setContract] = useState(null);
 
-  const contract_address = '0x01e15165d564a2117628d46f6a59cbcfb5c8c19c3c579c32edd5f6050efce909';
+  const contract_address = '0x05b60fc1222b9a4255397e9b9672535bc3aa23550bdf6d22872e3d770d8d48c9';
 
   const [input, setInput] = useState(null);
 
@@ -28,6 +29,8 @@ function App() {
       setProvider(provider);
       setAddress(provider.address);
       setIsConnected(true);
+      const contract = new Contract(contractAbi, contract_address, provider);
+      setContract(contract);
       console.log(provider);
     } catch (ex) {
       console.log(ex);
@@ -97,7 +100,7 @@ function App() {
       </div>
 
       {isConnected && <div className='mx-auto md:max-w-md max-w-lg py-4 lg:mb-20'>
-        <Values />
+        <Values contract={contract}/>
       </div>}
 
       <div className='lg:fixed lg:bottom-4 w-full mt-24 text-xs md:text-normal lg:bg-white'>
