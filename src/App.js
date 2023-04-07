@@ -7,6 +7,8 @@ import contractAbi from './starkz-abi/main_abi.json';
 import { useState } from 'react';
 import Values from './Values';
 import StarkIcon from './res/starknet-hero-image.svg';
+import { QuestionMarkCircleIcon } from '@heroicons/react/24/outline';
+import InfoSlideOver from './components/InfoSlideOver';
 
 function App() {
   const [provider, setProvider] = useState(null);
@@ -66,16 +68,26 @@ function App() {
     }
   }
 
+  const [show_slide_over, setShowSlideOver] = useState(false);
+
+  const handleShowSlideOver = () => {
+    setShowSlideOver(true);
+  }
+
   return (
     <div className="text-center">
-      <div className='bg-starknet py-4 text-center text-3xl text-white'>Stark-Z <img src={StarkIcon} className='inline h-10 w-10' /></div>
+      <InfoSlideOver show={show_slide_over} fn_show={setShowSlideOver}/>
+      <div className='bg-starknet py-4 text-center text-3xl text-white'>
+        Stark-Z <img src={StarkIcon} className='inline h-10 w-10' />
+        <QuestionMarkCircleIcon onClick={handleShowSlideOver} className='h-10 w-10 inline absolute top-4 right-4 hover:text-starknet-2 cursor-pointer'/>
+      </div>
       {!isConnected && <div>
         <div className='pt-16 text-xl'>Evaluate Z Transform</div>
         <div className='text-md text-slate-600'>This is an expirement on Starknet with Cairo. It is running on <u>Goerli</u> testnet.</div>
       </div>}
 
 
-
+        <div className='px-1'>
       {/* <div>
         <div className='max-w-xl flex mx-auto'>
           <input onChange={handleChange} type="text" className='w-80 border border-slate-400 px-2 py-1'/>
@@ -104,8 +116,9 @@ function App() {
       </div>}
 
       <div className='lg:fixed lg:bottom-4 w-full mt-24 text-xs md:text-normal lg:bg-white'>
-        <div>Made with ❤️ by <u><a href="https://twitter.com/elielmathe">Eliel</a></u> a stark core pharaon  </div>
+        <div>Made with 🚀 by <u><a href="https://twitter.com/elielmathe">Eliel</a></u> a stark core pharaon  </div>
         <div>Check out <u><a href="https://eliel.nfinic.com">my blog</a></u> for more work</div>
+      </div>
       </div>
     </div>
   );
