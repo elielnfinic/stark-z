@@ -96,9 +96,14 @@ function App() {
         {showResult && <div className='py-4'>Result: {showResult}</div>}
       </div>
 
-      {isConnected && <div className='mx-auto md:max-w-md max-w-lg py-4'>
+      {isConnected && <div className='mx-auto md:max-w-md max-w-lg py-4 lg:mb-20'>
         <Values />
       </div>}
+
+      <div className='lg:fixed lg:bottom-4 w-full mt-24 text-xs md:text-normal lg:bg-white'>
+        <div>Made with ❤️ by <u><a href="https://twitter.com/elielmathe">Eliel</a></u> a stark core pharaon  </div>
+        <div>Check out <u><a href="https://eliel.nfinic.com">my blog</a></u> for more work</div>
+      </div>
     </div>
   );
 }
