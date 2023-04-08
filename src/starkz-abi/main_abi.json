@@ -13,44 +13,7 @@
             }
         ],
         "name": "Ztrans",
-        "size": 11,
-        "type": "struct"
-    },
-    {
-        "members": [
-            {
-                "name": "x",
-                "offset": 0,
-                "type": "felt"
-            },
-            {
-                "name": "num_1",
-                "offset": 1,
-                "type": "felt"
-            },
-            {
-                "name": "num_2",
-                "offset": 2,
-                "type": "felt"
-            },
-            {
-                "name": "num_3",
-                "offset": 3,
-                "type": "felt"
-            },
-            {
-                "name": "num_4",
-                "offset": 4,
-                "type": "felt"
-            },
-            {
-                "name": "num_5",
-                "offset": 5,
-                "type": "felt"
-            }
-        ],
-        "name": "Transform",
-        "size": 6,
+        "size": 10,
         "type": "struct"
     },
     {
@@ -82,6 +45,38 @@
             }
         ],
         "name": "Inputs",
+        "size": 5,
+        "type": "struct"
+    },
+    {
+        "members": [
+            {
+                "name": "num_1",
+                "offset": 0,
+                "type": "felt"
+            },
+            {
+                "name": "num_2",
+                "offset": 1,
+                "type": "felt"
+            },
+            {
+                "name": "num_3",
+                "offset": 2,
+                "type": "felt"
+            },
+            {
+                "name": "num_4",
+                "offset": 3,
+                "type": "felt"
+            },
+            {
+                "name": "num_5",
+                "offset": 4,
+                "type": "felt"
+            }
+        ],
+        "name": "Transform",
         "size": 5,
         "type": "struct"
     },
