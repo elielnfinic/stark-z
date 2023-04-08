@@ -17,7 +17,7 @@ function App() {
   const [isConnected, setIsConnected] = useState(false);
   const [contract, setContract] = useState(null);
 
-  const contract_address = '0x05b60fc1222b9a4255397e9b9672535bc3aa23550bdf6d22872e3d770d8d48c9';
+  const contract_address = '0x03dc33b404f1c9b2803441bfe6f157406a6dfacb7e66213058de3133da873951';
 
   const [input, setInput] = useState(null);
 
