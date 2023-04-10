@@ -86,7 +86,7 @@ function App() {
 
   return (
     <div className="text-center">
-      <InfoSlideOver show={show_slide_over} fn_show={setShowSlideOver}/>
+      <InfoSlideOver contract={contract_address} show={show_slide_over} fn_show={setShowSlideOver}/>
       <div className='bg-starknet py-4 text-center text-3xl text-white'>
         Stark-Z <img src={StarkIcon} className='inline h-10 w-10' />
         <QuestionMarkCircleIcon onClick={handleShowSlideOver} className='h-10 w-10 inline absolute top-4 right-4 hover:text-starknet-2 cursor-pointer'/>

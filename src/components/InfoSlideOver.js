@@ -50,10 +50,10 @@ export default function InfoSlideOver(props) {
                                             <div className='py-2'>
                                                 <div className='text-xl py-2'>Smart contract on Starknet</div>
                                                 <div>
-                                                    <div className='text-md underline'><a href="https://testnet.starkscan.co/contract/0x05b60fc1222b9a4255397e9b9672535bc3aa23550bdf6d22872e3d770d8d48c9">View on Starkscan</a></div>
+                                                    <div className='text-md underline'><a href={`https://testnet.starkscan.co/contract/${props.contract}`}>View on Starkscan</a></div>
                                                 </div>
                                                 <div>
-                                                    <div className='text-md underline'><a href="https://goerli.voyager.online/tx/0x06ba05536c6ce627208f9a4721ea384c005435f576a20721fa34a818ca64c676">View on Voyager</a></div>
+                                                    <div className='text-md underline'><a href={`https://goerli.voyager.online/tx/${props.contract}`}>View on Voyager</a></div>
                                                     
                                                 </div>
                                             </div>
