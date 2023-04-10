@@ -4,7 +4,7 @@ import { connect } from 'get-starknet';
 // import { connect } from '@argent/get-starknet';
 
 import contractAbi from './starkz-abi/main_abi.json';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Values from './Values';
 import StarkIcon from './res/starknet-hero-image.svg';
 import { QuestionMarkCircleIcon } from '@heroicons/react/24/outline';
@@ -27,6 +27,8 @@ function App() {
 
       await starknet?.enable({ starknetVersion: "v4" })
       const provider = starknet.account;
+
+      localStorage.strk_account = provider.address;
 
       setProvider(provider);
       setAddress(provider.address);
@@ -73,6 +75,14 @@ function App() {
   const handleShowSlideOver = () => {
     setShowSlideOver(true);
   }
+
+  useEffect(() => {
+    if (localStorage.strk_account) {
+      setTimeout(() => {
+        connectToCairo();
+      },500);
+    }
+  },[]);
 
   return (
     <div className="text-center">
