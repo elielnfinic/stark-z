@@ -4,7 +4,7 @@ import { connect } from 'get-starknet';
 // import { connect } from '@argent/get-starknet';
 
 import contractAbi from './starkz-abi/main_abi.json';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Values from './Values';
 import StarkIcon from './res/starknet-hero-image.svg';
 import { QuestionMarkCircleIcon } from '@heroicons/react/24/outline';
@@ -27,6 +27,8 @@ function App() {
 
       await starknet?.enable({ starknetVersion: "v4" })
       const provider = starknet.account;
+
+      localStorage.strk_account = provider.address;
 
       setProvider(provider);
       setAddress(provider.address);
@@ -74,9 +76,17 @@ function App() {
     setShowSlideOver(true);
   }
 
+  useEffect(() => {
+    if (localStorage.strk_account) {
+      setTimeout(() => {
+        connectToCairo();
+      },500);
+    }
+  },[]);
+
   return (
     <div className="text-center">
-      <InfoSlideOver show={show_slide_over} fn_show={setShowSlideOver}/>
+      <InfoSlideOver contract={contract_address} show={show_slide_over} fn_show={setShowSlideOver}/>
       <div className='bg-starknet py-4 text-center text-3xl text-white'>
         Stark-Z <img src={StarkIcon} className='inline h-10 w-10' />
         <QuestionMarkCircleIcon onClick={handleShowSlideOver} className='h-10 w-10 inline absolute top-4 right-4 hover:text-starknet-2 cursor-pointer'/>

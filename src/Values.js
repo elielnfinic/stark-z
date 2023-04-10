@@ -106,7 +106,7 @@ export default function Values(props) {
         <div className='px-2'>
             <table className="divide-y w-full">
                 <thead>
-                    <tr><th className="py-2">Frequency</th><th className="py-2">Value</th><th className="py-2">Transform</th></tr>
+                    <tr><th className="py-2">Frequency</th><th className="py-2">Value</th><th className="py-2">Transform(Z(3))</th></tr>
                 </thead>
                 <tbody>
                     {freq.map((item, index) => (
